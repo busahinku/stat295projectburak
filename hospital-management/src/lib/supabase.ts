@@ -1,8 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
 
 // Hardcoded credentials to bypass env issues
-const supabaseUrl = 'https://ydowlrugvkgdyjoslojn.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxOTI1NzUsImV4cCI6MjA2Mzc2ODU3NX0.Nm1CnvAA77ATmiOWYgK2NfwVlvSG5flKrBG9t1fQoes'
+// const supabaseUrl = 'https://ydowlrugvkgdyjoslojn.supabase.co'
+// const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxOTI1NzUsImV4cCI6MjA2Mzc2ODU3NX0.Nm1CnvAA77ATmiOWYgK2NfwVlvSG5flKrBG9t1fQoes'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+// Basic check to ensure variables are loaded
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("Supabase URL or Anon Key is missing from environment variables. Make sure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set.")
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
