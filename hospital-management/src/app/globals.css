@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* Pastel Color Theme Variables */
+:root {
+  /* Pastel Background Colors */
+  --pastel-bg-primary: #fef7ff;    /* Very light lavender */
+  --pastel-bg-secondary: #f0f9ff;  /* Very light sky blue */
+  --pastel-bg-tertiary: #f7fee7;   /* Very light green */
+  --pastel-bg-quaternary: #fff7ed; /* Very light orange */
+  --pastel-bg-quinary: #fdf2f8;    /* Very light pink */
+  
+  /* Pastel Accent Colors */
+  --pastel-purple: #c084fc;        /* Soft purple */
+  --pastel-blue: #7dd3fc;          /* Soft blue */
+  --pastel-green: #86efac;         /* Soft green */
+  --pastel-orange: #fdba74;        /* Soft orange */
+  --pastel-pink: #f9a8d4;          /* Soft pink */
+  --pastel-yellow: #fde047;        /* Soft yellow */
+  --pastel-rose: #fda4af;          /* Soft rose */
+  --pastel-indigo: #a5b4fc;        /* Soft indigo */
+  --pastel-mint: #a7f3d0;          /* Soft mint */
+  --pastel-peach: #fed7aa;         /* Soft peach */
+  
+  /* Darker pastel variants for text */
+  --pastel-purple-dark: #9333ea;
+  --pastel-blue-dark: #0284c7;
+  --pastel-green-dark: #059669;
+  --pastel-orange-dark: #ea580c;
+  --pastel-pink-dark: #db2777;
+  --pastel-rose-dark: #e11d48;
+  --pastel-indigo-dark: #4f46e5;
+  
+  /* Text colors */
+  --text-primary: #374151;         /* Soft dark gray */
+  --text-secondary: #6b7280;       /* Medium gray */
+  --text-light: #9ca3af;           /* Light gray */
+  --text-white: #ffffff;           /* Pure white */
+}
+
+/* Global pastel theme */
+html {
+  background: linear-gradient(135deg, var(--pastel-bg-primary) 0%, var(--pastel-bg-secondary) 50%, var(--pastel-bg-tertiary) 100%) !important;
+  min-height: 100vh;
+  color: var(--text-primary) !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Pastel input styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  color: var(--text-primary) !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  padding: 16px 20px !important;
+  transition: all 0.3s ease !important;
+  font-size: 14px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.95) 100%) !important;
+  box-shadow: 0 8px 32px rgba(125, 211, 252, 0.3), 0 0 0 3px rgba(125, 211, 252, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-light) !important;
+}
+
+/* Beautiful select styling */
+select {
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 20px !important;
+  cursor: pointer !important;
+}
+
+select:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 243, 255, 0.95) 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Custom option styling */
+select option {
+  background: white !important;
+  color: var(--text-primary) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+}
+
+/* Pastel button base styles */
+.btn-pastel {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 12px 24px !important;
+  font-size: 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-pastel:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-pastel:active {
+  transform: translateY(0) !important;
+}
+
+.btn-pastel:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Pastel button variants */
+.btn-pastel-purple {
+  background: linear-gradient(135deg, var(--pastel-purple) 0%, var(--pastel-indigo) 100%) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-pastel-blue {
+  background: linear-gradient(135deg, var(--pastel-blue) 0%, #bfdbfe 100%) !important;
+  color: var(--pastel-blue-dark) !important;
+}
+
+.btn-pastel-green {
+  background: linear-gradient(135deg, var(--pastel-green) 0%, var(--pastel-mint) 100%) !important;
+  color: var(--pastel-green-dark) !important;
+}
+
+.btn-pastel-orange {
+  background: linear-gradient(135deg, var(--pastel-orange) 0%, var(--pastel-peach) 100%) !important;
+  color: var(--pastel-orange-dark) !important;
+}
+
+.btn-pastel-pink {
+  background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-rose) 100%) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-pastel-rose {
+  background: linear-gradient(135deg, var(--pastel-rose) 0%, #fecaca 100%) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-pastel-yellow {
+  background: linear-gradient(135deg, var(--pastel-yellow) 0%, #fef3c7 100%) !important;
+  color: #92400e !important;
+}
+
+.btn-pastel-indigo {
+  background: linear-gradient(135deg, var(--pastel-indigo) 0%, #c7d2fe 100%) !important;
+  color: var(--pastel-indigo-dark) !important;
+}
+
+/* Pastel card styling */
+.card-pastel {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card-pastel:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Pastel sidebar styling */
+.sidebar-pastel {
+  background: linear-gradient(180deg, var(--pastel-bg-primary) 0%, var(--pastel-bg-quinary) 100%) !important;
+  backdrop-filter: blur(10px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Pastel navigation styling */
+.nav-pastel {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Pastel table styling */
+.table-pastel {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.table-pastel th {
+  background: linear-gradient(135deg, var(--pastel-purple) 0%, var(--pastel-indigo) 100%) !important;
+  color: var(--text-white) !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+}
+
+.table-pastel td {
+  border-bottom: 1px solid rgba(196, 132, 252, 0.2) !important;
+  padding: 12px 16px !important;
+}
+
+.table-pastel tr:hover {
+  background: rgba(196, 132, 252, 0.1) !important;
+}
+
+/* Pastel status badges */
+.badge-pastel {
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.badge-success {
+  background: var(--pastel-green) !important;
+  color: var(--pastel-green-dark) !important;
+}
+
+.badge-warning {
+  background: var(--pastel-yellow) !important;
+  color: #92400e !important;
+}
+
+.badge-error {
+  background: var(--pastel-rose) !important;
+  color: var(--text-white) !important;
+}
+
+.badge-info {
+  background: var(--pastel-blue) !important;
+  color: var(--pastel-blue-dark) !important;
+}
+
+/* Pastel animations */
+@keyframes float-pastel {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-pastel {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(196, 132, 252, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(196, 132, 252, 0.6);
+  }
+}
+
+@keyframes gradient-shift-pastel {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float-pastel {
+  animation: float-pastel 6s ease-in-out infinite;
+}
+
+.animate-pulse-pastel {
+  animation: pulse-pastel 3s ease-in-out infinite;
+}
+
+.animate-gradient-pastel {
+  background-size: 200% 200%;
+  animation: gradient-shift-pastel 8s ease infinite;
+}
+
+/* Pastel gradient text */
+.gradient-text-pastel {
+  background: linear-gradient(135deg, var(--pastel-purple) 0%, var(--pastel-blue) 50%, var(--pastel-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift-pastel 4s ease infinite;
+}
+
+/* Glass morphism with pastel tint */
+.glass-pastel {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+}
+
+/* Pastel loading spinner */
+.spinner-pastel {
+  border: 3px solid rgba(196, 132, 252, 0.3);
+  border-top: 3px solid var(--pastel-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Sliding logos animation - seamless infinite scroll */
+@keyframes slide-logos-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1792px); /* Exactly one set width */
+  }
+}
+
+.animate-slide-logos-infinite {
+  animation: slide-logos-infinite 30s linear infinite;
+  will-change: transform;
+}
+
+/* Pastel form styling */
+.form-pastel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Pastel modal styling */
+.modal-pastel {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure text colors are consistent */
+.text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-700 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-500 {
+  color: var(--text-light) !important;
+}
+
+/* Disable dark mode completely */
+@media (prefers-color-scheme: dark) {
+  html {
+    background: linear-gradient(135deg, var(--pastel-bg-primary) 0%, var(--pastel-bg-secondary) 50%, var(--pastel-bg-tertiary) 100%) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  body {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+  }
+}

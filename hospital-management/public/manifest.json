@@ -1,0 +1,37 @@
+{
+  "name": "SirLewis - Digital Healthcare Management",
+  "short_name": "SirLewis",
+  "description": "Experience world-class healthcare with our comprehensive hospital management system. Book appointments, manage medical records, and connect with expert doctors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fef7ff",
+  "theme_color": "#c084fc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logos/logo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/logos/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/logos/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["health", "medical", "healthcare", "hospital"],
+  "lang": "en",
+  "scope": "/",
+  "id": "/",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+} 
