@@ -1,10 +1,16 @@
 const { createClient } = require('@supabase/supabase-js')
 
-// Direct connection - no env variables
-const supabase = createClient(
-  'https://ydowlrugvkgdyjoslojn.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxOTI1NzUsImV4cCI6MjA2Mzc2ODU3NX0.Nm1CnvAA77ATmiOWYgK2NfwVlvSG5flKrBG9t1fQoes'
-)
+// Load environment variables from .env.local
+require('dotenv').config({ path: './.env.local' });
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Supabase URL or Anon Key is missing. Make sure .env.local is set up with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.');
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function testDirectConnection() {
   try {

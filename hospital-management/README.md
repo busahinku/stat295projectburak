@@ -56,12 +56,20 @@ npm install
 ```
 
 ### 3. Environment Setup
-Create a `.env.local` file in the root directory:
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://ydowlrugvkgdyjoslojn.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxOTI1NzUsImV4cCI6MjA2Mzc2ODU3NX0.Nm1CnvAA77ATmiOWYgK2NfwVlvSG5flKrBG9t1fQoes
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODE5MjU3NSwiZXhwIjoyMDYzNzY4NTc1fQ.6w63OueV5f9lrg08fNaeTJLIM_0Zhe_U2szbbPqOg2I
+Create a `.env.local` file in the root directory by copying the `.env.example` file:
+
+```bash
+cp .env.example .env.local
 ```
+
+Then, update `.env.local` with your Supabase project credentials:
+```env
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL_HERE
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY_HERE
+# For local development, if you need to use server-side Supabase functions (e.g., with service_role key):
+# SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_ROLE_KEY_HERE
+```
+Get these values from your Supabase project's API settings.
 
 ### 4. Database Setup
 1. Go to your Supabase project dashboard
@@ -141,10 +149,10 @@ The system uses a PostgreSQL database with the following main tables:
 4. Deploy automatically
 
 ### Environment Variables for Production
-Make sure to set these in your deployment platform:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
+Make sure to set these in your Vercel (or other deployment platform) project settings:
+- `NEXT_PUBLIC_SUPABASE_URL` (Your Supabase project URL)
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Your Supabase project anon key)
+- `SUPABASE_SERVICE_ROLE_KEY` (Your Supabase project service_role key - keep this secret!)
 
 ## Features by Role
 

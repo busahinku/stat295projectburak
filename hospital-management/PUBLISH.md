@@ -29,10 +29,11 @@ Your hospital management system includes:
    - Click "New Project"
    - Import from GitHub
    - Select your repository
-   - Add environment variables:
-     - `NEXT_PUBLIC_SUPABASE_URL`: `https://ydowlrugvkgdyjoslojn.supabase.co`
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxOTI1NzUsImV4cCI6MjA2Mzc2ODU3NX0.Nm1CnvAA77ATmiOWYgK2NfwVlvSG5flKrBG9t1fQoes`
-     - `SUPABASE_SERVICE_ROLE_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkb3dscnVndmtnZHlqb3Nsb2puIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODE5MjU3NSwiZXhwIjoyMDYzNzY4NTc1fQ.6w63OueV5f9lrg08fNaeTJLIM_0Zhe_U2szbbPqOg2I`
+   - Add environment variables in your Vercel Project Settings:
+     - `NEXT_PUBLIC_SUPABASE_URL`: YOUR_SUPABASE_URL_HERE (from your Supabase project)
+     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: YOUR_SUPABASE_ANON_KEY_HERE (from your Supabase project)
+     - `SUPABASE_SERVICE_ROLE_KEY`: YOUR_SUPABASE_SERVICE_ROLE_KEY_HERE (from your Supabase project - keep this secret!)
+     Refer to `.env.example` for variable names.
    - Click "Deploy"
 
 3. **Live in 2 minutes!** 🎉
