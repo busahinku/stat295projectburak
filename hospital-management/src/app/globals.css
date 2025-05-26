@@ -395,6 +395,102 @@ select option {
   color: var(--text-light) !important;
 }
 
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Adjust base font size for smaller screens */
+  }
+
+  body {
+    font-size: 14px; /* Ensure body font size matches html base */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  select,
+  textarea {
+    padding: 12px 15px !important; /* Smaller padding for input fields */
+    font-size: 13px !important; /* Smaller font size for input fields */
+    border-radius: 12px !important; /* Slightly smaller border radius */
+  }
+
+  select {
+    background-position: right 12px center !important; /* Adjust select arrow position */
+    background-size: 18px !important; /* Adjust select arrow size */
+  }
+
+  .btn-pastel {
+    padding: 10px 18px !important; /* Smaller padding for buttons */
+    font-size: 13px !important; /* Smaller font size for buttons */
+    border-radius: 10px !important; /* Slightly smaller border radius */
+  }
+
+  .card-pastel {
+    padding: 15px !important; /* Smaller padding for cards if they have direct padding */
+    border-radius: 12px !important;
+  }
+  
+  .card-pastel h1, .card-pastel h2, .card-pastel h3 { /* Example: Adjust heading sizes within cards */
+    font-size: 1.2em; /* Adjust as needed */
+  }
+  
+  .card-pastel p {
+    font-size: 0.9em; /* Adjust paragraph text within cards */
+  }
+
+  .table-pastel th {
+    padding: 12px 10px !important; /* Smaller padding for table headers */
+    font-size: 13px !important;
+  }
+
+  .table-pastel td {
+    padding: 10px 10px !important; /* Smaller padding for table cells */
+    font-size: 13px !important;
+  }
+
+  .badge-pastel {
+    padding: 5px 10px !important; /* Smaller padding for badges */
+    font-size: 11px !important; /* Smaller font size for badges */
+  }
+  
+  /* Adjust .form-pastel padding */
+  .form-pastel {
+    padding: 16px !important;
+  }
+  
+  /* Adjust .modal-pastel padding and child elements if necessary */
+  .modal-pastel {
+    padding: 20px !important; /* Adjust overall modal padding */
+    /* Consider adjusting font sizes or spacing of elements within modals too if they cause overflow */
+  }
+
+  /* You may need to add more specific selectors here if general ones are not enough */
+  /* For example, if a specific div with a class like '.main-content' is overflowing: */
+  /* .main-content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  } */
+  
+  /* If your navigation has specific classes, adjust them here */
+  /* .nav-pastel ul li a { 
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  } */
+
+  /* If the sidebar is too wide or its contents are too large */
+  /* .sidebar-pastel {
+    width: 200px !important; /* Example: reduce sidebar width */
+  /* } */
+  /* .sidebar-pastel .menu-item {
+    font-size: 13px !important;
+    padding: 8px !important;
+  } */
+}
+
 /* Disable dark mode completely */
 @media (prefers-color-scheme: dark) {
   html {
