@@ -162,7 +162,7 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
       {/* Mobile backdrop */}
       {isMobile && !isCollapsed && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-white bg-opacity-20 backdrop-blur-sm z-40"
           onClick={() => setIsCollapsed(true)}
         />
       )}
