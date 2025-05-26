@@ -66,7 +66,7 @@ export default function DashboardLayout({
         userName={`${user.firstName} ${user.lastName}`}
         onSignOut={handleSignOut}
       />
-      <main className="flex-1 overflow-auto min-w-0 md:ml-0 ml-12">
+      <main className="flex-1 overflow-auto min-w-0 md:ml-0 ml-14">
         <div className="p-6 max-w-full md:p-6 sm:p-3 p-2">
           {children}
         </div>

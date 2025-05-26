@@ -158,8 +158,8 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
   const filteredNavItems = currentNavItems.filter(item => item.roles.includes(userRole))
 
   return (
-    <>
-      {/* Mobile overlay backdrop */}
+    <div className="h-full">
+      {/* Mobile backdrop */}
       {isMobile && !isCollapsed && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
@@ -172,12 +172,15 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
         // Desktop behavior
         !isMobile && (isCollapsed ? "w-16" : "w-64"),
         // Mobile behavior - fixed positioning
-        isMobile && "fixed left-0 top-0 h-full z-50 shadow-xl",
-        isMobile && isCollapsed && "w-12",
+        isMobile && "fixed left-0 top-0 h-full z-50 shadow-xl bg-white",
+        isMobile && isCollapsed && "w-14",
         isMobile && !isCollapsed && "w-64"
       )}>
         {/* Header */}
-        <div className="p-4 border-b border-gray-200">
+        <div className={cn(
+          "border-b border-gray-200",
+          isCollapsed ? "p-2" : "p-4"
+        )}>
           <div className="flex items-center justify-between">
             {!isCollapsed && (
               <div className="flex items-center space-x-2">
@@ -193,7 +196,7 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
               className={cn(
                 "p-2 rounded-lg hover:bg-gray-100 transition-colors",
                 isCollapsed && "mx-auto",
-                isMobile && isCollapsed && "p-1"
+                isMobile && isCollapsed && "p-1.5"
               )}
             >
               {isCollapsed ? <Menu className={cn(isMobile ? "h-4 w-4" : "h-5 w-5")} /> : <X className="h-5 w-5" />}
@@ -219,7 +222,10 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
         )}
 
         {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className={cn(
+          "flex-1 space-y-2",
+          isCollapsed ? "p-2" : "p-4"
+        )}>
           {filteredNavItems.map((item) => {
             const isActive = pathname === item.href
             const Icon = item.icon
@@ -234,11 +240,11 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
                     ? "bg-blue-50 text-blue-700 border border-blue-200" 
                     : "text-gray-700 hover:bg-gray-50",
                   isCollapsed && "justify-center px-2 py-3",
-                  isMobile && isCollapsed && "px-1 py-2 mx-1"
+                  isMobile && isCollapsed && "px-1 py-2 mx-0.5"
                 )}
               >
                 <Icon className={cn(
-                  isCollapsed ? (isMobile ? "h-5 w-5" : "h-6 w-6") : "h-5 w-5",
+                  isCollapsed ? (isMobile ? "h-4 w-4" : "h-6 w-6") : "h-5 w-5",
                   isActive && "text-blue-700"
                 )} />
                 {!isCollapsed && (
@@ -250,17 +256,20 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
         </nav>
 
         {/* Settings and Logout */}
-        <div className="p-4 border-t border-gray-200 space-y-2">
+        <div className={cn(
+          "border-t border-gray-200 space-y-2",
+          isCollapsed ? "p-2" : "p-4"
+        )}>
           <Link
             href="/settings"
             className={cn(
               "flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors text-gray-700 hover:bg-gray-50",
               isCollapsed && "justify-center px-2 py-3",
-              isMobile && isCollapsed && "px-1 py-2 mx-1"
+              isMobile && isCollapsed && "px-1 py-2 mx-0.5"
             )}
           >
             <Settings className={cn(
-              isCollapsed ? (isMobile ? "h-5 w-5" : "h-6 w-6") : "h-5 w-5"
+              isCollapsed ? (isMobile ? "h-4 w-4" : "h-6 w-6") : "h-5 w-5"
             )} />
             {!isCollapsed && <span className="font-medium">Settings</span>}
           </Link>
@@ -270,16 +279,16 @@ export function Sidebar({ userRole, userName, onSignOut }: SidebarProps) {
             className={cn(
               "w-full flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors text-red-600 hover:bg-red-50",
               isCollapsed && "justify-center px-2 py-3",
-              isMobile && isCollapsed && "px-1 py-2 mx-1"
+              isMobile && isCollapsed && "px-1 py-2 mx-0.5"
             )}
           >
             <LogOut className={cn(
-              isCollapsed ? (isMobile ? "h-5 w-5" : "h-6 w-6") : "h-5 w-5"
+              isCollapsed ? (isMobile ? "h-4 w-4" : "h-6 w-6") : "h-5 w-5"
             )} />
             {!isCollapsed && <span className="font-medium">Sign Out</span>}
           </button>
         </div>
       </div>
-    </>
+    </div>
   )
 } 
