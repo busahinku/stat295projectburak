@@ -395,14 +395,109 @@ select option {
   color: var(--text-light) !important;
 }
 
+/* 
+  Styles for collapsed sidebar state.
+  IMPORTANT: Verify that your sidebar element gets a class like '.sidebar-collapsed' when it is collapsed.
+  If it uses a different class (e.g., '.is-compact', '.sidebar-mini'), replace '.sidebar-collapsed' in all rules below.
+*/
+
+/* 1. Hide the graphic logo image when sidebar is collapsed */
+/*    Replace '.actual-logo-image-class' with the specific class of your visible graphic logo image, 
+    or if it's just an img tag within a known container like '.sidebar-header', you can use that. */
+.sidebar-pastel.sidebar-collapsed .sidebar-header img, /* Common: targets any img in a .sidebar-header */
+.sidebar-pastel.sidebar-collapsed img.actual-logo-image-class, /* More specific: if your logo img has a unique class */
+.sidebar-pastel.sidebar-collapsed .actual-logo-image-class /* If the logo is a div with a background image */
+{
+  display: none !important;
+}
+
+/* Ensure any text part of the logo or user profile info inside the header is also hidden if not already */
+.sidebar-pastel.sidebar-collapsed .sidebar-header .logo-text-span-class, /* e.g., for "SirLewis" text if it has a class */
+.sidebar-pastel.sidebar-collapsed .sidebar-header .user-profile-info-div /* e.g., for the Berat Ozkan section */
+{
+  display: none !important;
+}
+
+/* 2. Style menu items and icons in the collapsed sidebar */
+.sidebar-pastel.sidebar-collapsed .menu-item {
+  padding: 0 !important; /* Remove padding from the item itself, will add to link/button inside */
+  width: 100%; /* Make item take full available width in collapsed sidebar (usually small) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px; /* Optional: add some space between collapsed items */
+}
+
+/* Ensure the clickable area (link or button) inside the menu item is well-sized */
+.sidebar-pastel.sidebar-collapsed .menu-item a,
+.sidebar-pastel.sidebar-collapsed .menu-item button {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 44px !important;  /* Adjust for desired tappable width */
+  height: 44px !important; /* Adjust for desired tappable height */
+  padding: 10px !important; /* Padding around the icon */
+  border-radius: 8px; /* Optional: match other styles */
+}
+
+/* Make icons larger and centered */
+.sidebar-pastel.sidebar-collapsed .menu-item svg { /* For SVG icons */
+  width: 24px !important;
+  height: 24px !important;
+  margin: 0 !important; /* Override other margins */
+}
+
+.sidebar-pastel.sidebar-collapsed .menu-item [class*="icon"],
+.sidebar-pastel.sidebar-collapsed .menu-item [class*="Icon"],
+.sidebar-pastel.sidebar-collapsed .menu-item [class*="ICON"] { /* For font icons or icons in styled divs */
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 24px !important; /* Vertically center font icons */
+  margin: 0 !important;
+}
+
+/* Ensure menu item text labels are hidden (they likely are, but explicitly) */
+/* Replace '.menu-item-text-label' if your text labels have a different class */
+.sidebar-pastel.sidebar-collapsed .menu-item span,
+.sidebar-pastel.sidebar-collapsed .menu-item .menu-item-text-label {
+  display: none !important;
+  visibility: hidden !important; /* Extra precaution */
+}
+
 /* Responsive adjustments for mobile devices */
 @media (max-width: 768px) {
   html {
-    font-size: 14px; /* Adjust base font size for smaller screens */
+    font-size: 13px; /* Further reduced base font size for mobile */
   }
 
   body {
-    font-size: 14px; /* Ensure body font size matches html base */
+    font-size: 13px; /* Ensure body font size matches html base */
+    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+  }
+
+  /* Ensure main content doesn't overflow on mobile */
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Ensure all containers are responsive */
+  .max-w-6xl,
+  .max-w-4xl,
+  .max-w-2xl {
+    max-width: 100% !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Make cards and containers more mobile-friendly */
+  .card-pastel,
+  .modal-pastel,
+  .form-pastel {
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    width: calc(100% - 0.5rem) !important;
   }
 
   input[type="text"],
@@ -413,82 +508,156 @@ select option {
   input[type="date"],
   select,
   textarea {
-    padding: 12px 15px !important; /* Smaller padding for input fields */
-    font-size: 13px !important; /* Smaller font size for input fields */
-    border-radius: 12px !important; /* Slightly smaller border radius */
+    padding: 10px 12px !important; /* Even smaller padding for input fields */
+    font-size: 12px !important; /* Smaller font size for input fields */
+    border-radius: 10px !important; /* Smaller border radius */
   }
 
   select {
-    background-position: right 12px center !important; /* Adjust select arrow position */
-    background-size: 18px !important; /* Adjust select arrow size */
+    background-position: right 10px center !important; /* Adjust select arrow position */
+    background-size: 16px !important; /* Adjust select arrow size */
   }
 
   .btn-pastel {
-    padding: 10px 18px !important; /* Smaller padding for buttons */
-    font-size: 13px !important; /* Smaller font size for buttons */
-    border-radius: 10px !important; /* Slightly smaller border radius */
+    padding: 8px 14px !important; /* Smaller padding for buttons */
+    font-size: 12px !important; /* Smaller font size for buttons */
+    border-radius: 8px !important; /* Smaller border radius */
   }
 
   .card-pastel {
-    padding: 15px !important; /* Smaller padding for cards if they have direct padding */
-    border-radius: 12px !important;
+    padding: 12px !important; /* Smaller padding for cards */
+    border-radius: 10px !important;
   }
   
-  .card-pastel h1, .card-pastel h2, .card-pastel h3 { /* Example: Adjust heading sizes within cards */
-    font-size: 1.2em; /* Adjust as needed */
+  .card-pastel h1, .card-pastel h2, .card-pastel h3 {
+    font-size: 1.1em !important; /* Smaller heading sizes */
+    margin-bottom: 0.5rem !important;
   }
   
   .card-pastel p {
-    font-size: 0.9em; /* Adjust paragraph text within cards */
+    font-size: 0.85em !important; /* Smaller paragraph text */
+    margin-bottom: 0.5rem !important;
   }
 
   .table-pastel th {
-    padding: 12px 10px !important; /* Smaller padding for table headers */
-    font-size: 13px !important;
+    padding: 8px 6px !important; /* Much smaller padding for table headers */
+    font-size: 11px !important;
   }
 
   .table-pastel td {
-    padding: 10px 10px !important; /* Smaller padding for table cells */
-    font-size: 13px !important;
+    padding: 6px 6px !important; /* Much smaller padding for table cells */
+    font-size: 11px !important;
   }
 
   .badge-pastel {
-    padding: 5px 10px !important; /* Smaller padding for badges */
-    font-size: 11px !important; /* Smaller font size for badges */
+    padding: 3px 8px !important; /* Smaller padding for badges */
+    font-size: 10px !important; /* Smaller font size for badges */
   }
   
   /* Adjust .form-pastel padding */
   .form-pastel {
-    padding: 16px !important;
+    padding: 12px !important;
   }
   
   /* Adjust .modal-pastel padding and child elements if necessary */
   .modal-pastel {
-    padding: 20px !important; /* Adjust overall modal padding */
-    /* Consider adjusting font sizes or spacing of elements within modals too if they cause overflow */
+    padding: 16px !important; /* Smaller modal padding */
+    margin: 1rem !important; /* Add margin to modal */
   }
 
-  /* You may need to add more specific selectors here if general ones are not enough */
-  /* For example, if a specific div with a class like '.main-content' is overflowing: */
-  /* .main-content {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  } */
+  /* Adjustments for the hamburger menu / sidebar toggle button if it overflows */
+  .hamburger-menu, 
+  .sidebar-toggle-button {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  }
   
-  /* If your navigation has specific classes, adjust them here */
-  /* .nav-pastel ul li a { 
-    font-size: 13px !important;
-    padding: 8px 10px !important;
-  } */
+  /* MODIFIED: Ensure sidebar icons are adequately sized on mobile WHEN NOT COLLAPSED */
+  .sidebar-pastel:not(.sidebar-collapsed) .menu-item svg {
+    width: 18px !important; 
+    height: 18px !important; 
+  }
 
-  /* If the sidebar is too wide or its contents are too large */
-  /* .sidebar-pastel {
-    width: 200px !important; /* Example: reduce sidebar width */
-  /* } */
-  /* .sidebar-pastel .menu-item {
-    font-size: 13px !important;
-    padding: 8px !important;
-  } */
+  .sidebar-pastel:not(.sidebar-collapsed) .menu-item [class*="icon"],
+  .sidebar-pastel:not(.sidebar-collapsed) .menu-item [class*="Icon"],
+  .sidebar-pastel:not(.sidebar-collapsed) .menu-item [class*="ICON"] {
+    font-size: 18px !important; 
+    width: 18px !important; 
+    height: 18px !important; 
+    line-height: 1 !important; 
+  }
+
+  /* Ensure tables are scrollable on mobile */
+  .table-pastel {
+    overflow-x: auto !important;
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  /* Make navigation tabs responsive */
+  nav {
+    overflow-x: auto !important;
+  }
+
+  nav .flex {
+    flex-wrap: nowrap !important;
+    min-width: max-content !important;
+  }
+
+  /* Reduce spacing between elements */
+  .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.375rem !important;
+  }
+
+  .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.75rem !important;
+  }
+
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem !important;
+  }
+
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.25rem !important;
+  }
+
+  /* Make text smaller globally on mobile */
+  .text-xs {
+    font-size: 0.65rem !important;
+  }
+
+  .text-sm {
+    font-size: 0.75rem !important;
+  }
+
+  .text-base {
+    font-size: 0.8rem !important;
+  }
+
+  .text-lg {
+    font-size: 0.9rem !important;
+  }
+
+  .text-xl {
+    font-size: 1rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.1rem !important;
+  }
+
+  /* Reduce grid gaps */
+  .gap-4 {
+    gap: 0.75rem !important;
+  }
+
+  .gap-6 {
+    gap: 1rem !important;
+  }
+
+  .gap-8 {
+    gap: 1.25rem !important;
+  }
 }
 
 /* Disable dark mode completely */
